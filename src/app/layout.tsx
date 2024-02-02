@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TopBar from "@/components/TopBar/TopBar";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <NextTopLoader showSpinner={false} color="#F1C116" />
         <TopBar />
         <Header />
         {children}

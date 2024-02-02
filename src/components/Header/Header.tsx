@@ -36,7 +36,7 @@ export default function Header() {
     },
     {
       title: "My Account",
-      url: "/account",
+      url: "/account/login",
     },
   ];
 
@@ -98,7 +98,7 @@ export default function Header() {
           {navItem.map(({ title, url }, index) => {
             return (
               <Link
-                className="text-xs uppercase text-right transition-all hover:text-sm hover:underline hover:font-bold"
+                className="text-xs uppercase text-right transition-all hover:text-sm hover:underline hover:font-boldr"
                 key={index}
                 href={url}
               >
