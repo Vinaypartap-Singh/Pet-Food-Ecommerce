@@ -8,6 +8,24 @@
   background-size: cover;
 }
 
+.info1 {
+  background-image: url("https://gcroquette.oceanwp.org/wp-content/uploads/2022/05/owp-croquette-img-004.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info2 {
+  background-image: url("https://gcroquette.oceanwp.org/wp-content/uploads/2022/05/owp-croquette-img-003.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info3 {
+  background-image: url("https://gcroquette.oceanwp.org/wp-content/uploads/2022/05/owp-croquette-img-002.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .hero {
     background-position: center center;
