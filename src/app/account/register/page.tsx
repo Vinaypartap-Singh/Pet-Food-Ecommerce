@@ -3,42 +3,30 @@
 import { UserCredential, createUserWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import { auth, db } from "../../../../firebase";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { register } from "module";
+import { useRouter } from "next/navigation";
+import {
+  AuthContext,
+  AuthContextType,
+  AuthProvider,
+} from "@/context/AuthContext";
 
 export default function Register() {
+  const authContext = useContext<AuthContextType | undefined>(AuthContext);
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  if (!authContext) {
+    throw new Error("AuthProvider not found");
+  }
+
+  const { signup } = authContext;
+
   const registerUser = async () => {
+    await signup(username, email, password);
     try {
-      createUserWithEmailAndPassword(auth, email, password).then(
-        (UserCredentials: UserCredential) => {
-          const user = UserCredentials.user;
-
-          const userDocRef = doc(db, "users", `${user.uid}`);
-
-          setDoc(
-            userDocRef,
-            {
-              username: username,
-              email: email,
-              userOrders: [],
-              userCart: [],
-            },
-            { merge: true }
-          );
-
-          setUsername("");
-          setEmail("");
-          setPassword("");
-
-          alert(
-            "Your account has been created.Click on the login button below to continue login."
-          );
-        }
-      );
     } catch (error) {
       alert(error);
     }

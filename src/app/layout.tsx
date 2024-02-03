@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TopBar from "@/components/TopBar/TopBar";
 import NextTopLoader from "nextjs-toploader";
+import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -32,7 +33,7 @@ export default function RootLayout({
         <NextTopLoader showSpinner={false} color="#F1C116" />
         <TopBar />
         <Header />
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         <Footer />
       </body>
     </html>
